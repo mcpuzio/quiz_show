@@ -1,0 +1,43 @@
+class UsersController < ApplicationController
+  def index
+  	@users = User.all
+  end
+
+  def new
+  	@user = User.new
+  end
+
+  def create
+  	@user = User.new(user_params)
+  	if @user.save
+  		sessions[:user_id] = @user.user_id
+  		redirect_to login_path
+  	else
+  		render 'new'
+  	end
+  end
+
+  def edit
+  	@user = User.find(params[:id])
+  end
+
+  def update
+  	@user = User.find(params[:id])
+  	if @user.update_attributes(user_params)
+  		redirect_to user_path(@user)
+  	else
+  		render 'new'
+  	end
+  end
+
+  def show
+  	@user = User.find(params[:id])
+  end
+
+  private
+
+  def user_params
+  params.require(:user).permit(:username, :email, :password_digest)
+	end
+
+end
