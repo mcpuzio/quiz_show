@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: MyString
+  object: MyText
+  strategy: MyText
+  assessment: MyString
+  cclink: MyText
+  user_id: 
+
+two:
+  subject: MyString
+  object: MyText
+  strategy: MyText
+  assessment: MyString
+  cclink: MyText
+  user_id: 
