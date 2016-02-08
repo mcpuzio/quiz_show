@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,7 +18,7 @@
 			</ul>
 			<div class="navbar-header"><div id="logo" class="navbar-brand navbar-center"></div></div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Sign In", root_path %></li>
+				<li><%= link_to "Sign In", new_user_path %></li>
 				<li><%= link_to "Sign Out", root_path %></li>
 			</ul>
 			</div>
@@ -32,3 +33,103 @@
 
 </body>
 </html>
+<script >
+	
+
+var currentPage = 0, correct = 0;
+var myAnswers = [];
+var myQuiz = [
+["Why is life so difficult?",4,"Javascript","Ruby on Rails","Testing","GitHub"],
+["When under stress, what is Willis's go to phrase?",2,"WTF","Please God, just work","I hate my life!","Jen, make this work!"],
+["Famous Tennis Player?",1,"Roger Federer","Michael Jackson","Charlie Sheen","Michael Puzio"]
+
+];
+var previous = document.getElementById("previous")
+var next = document.getElementById("next")
+next.addEventListener("click", moveNext);
+previous.addEventListener("click", moveBack);
+var progressBar = document.getElementById("progressBar");
+var myQuestion = document.getElementById("questions");
+var myHeader = document.getElementById("quizHeader");
+var classname = document.getElementsByClassName("answer");
+checkPage();
+
+for (var i = 0; i < classname.length; i++) {
+	classname[i].addEventListener('click',myAnswer, false);
+}
+
+function myAnswer() {
+	var idAnswer = this.getAttribute("data-id");
+	// document.getElementById("page1").innerHTML = 'Answer' + idAnswer;
+	// This will check for the correct answer
+	myAnswers[currentPage] = idAnswer;
+	if(myQuiz[currentPage][1]==idAnswer){
+		console.log('Correct Answer');
+	}else{console.log('Wrong Answer');
+	}
+}
+
+
+
+function moveNext() {
+if (myAnswers[currentPage]){
+	console.log('you may pass');
+
+if(currentPage < (myQuiz.length-1) ){
+		currentPage++;
+		checkPage(currentPage);
+} else {
+	//checks if question has been answered
+	console.log(currentPage + '' + myQuiz.length); 
+	if (myQuiz.length >= currentPage){
+		endQuiz();
+	}else{
+		console.log('end of quiz Page' + currentPage);
+}
+	}
+} else {
+	console.log('YOU, shall not pass!');
+}
+	}
+
+function endQuiz() {
+	console.log('The End');
+}
+
+function checkPage(i){
+	//add and removing buttons if no more questions
+	if(currentPage==0){
+		previous.classList.add("hide");
+	}else{previous.classList.remove("hide");}
+
+	if( (currentPage+1)<(myQuiz.length)){
+	next.classList.remove("hide");
+	}else{next.classList.add("hide");
+}
+
+
+	
+	myHeader.innerHTML = myQuiz[currentPage][0];
+	for (var i = 0; i < myQuestion.children.length;i++){
+	var curNode = myQuestion.children[i];
+	curNode.childNodes[1].innerHTML = capitalise(myQuiz[currentPage][(i+2)]);
+	}
+	//updating progress bar
+	var increment = Math.ceil((currentPage)/(myQuiz.length)*100);
+	progressBar.style.width = (increment)+ '%';
+	progressBar.innerHTML=(increment)+ '%';
+}
+
+function moveBack() {
+	if(currentPage > 0 ){
+		currentPage--;
+		checkPage(currentPage);
+	}else{
+		console.log('end of quiz Page' + currentPage);
+	}
+}
+function capitalise(str) {
+	return str.substr(0,1).toUpperCase() + str.substr(1);
+}
+
+</script>

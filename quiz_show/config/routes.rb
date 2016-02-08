@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
-  get 'static/home'
 
   get 'users/index'
 
@@ -14,6 +13,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static#home'
+  get '/' => 'sessions#new'
+  post '/' => 'sessions#create'
+ 
+  delete '/logout' => 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -25,7 +28,8 @@ Rails.application.routes.draw do
   resources :users
   resources :categories
   resources :questions
-
+  resources :plans
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
