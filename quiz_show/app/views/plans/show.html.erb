@@ -9,4 +9,7 @@
 <%= link_to "Destroy", plan_path(@plan), method: :delete, data: {confirm: "Delete Plan?"} %>  |  
 <%= link_to "Home", root_path %></p>
 
+<div class="images">
+<%= image_tag (@plan.image_url) %>
 
+</div>
