@@ -14,23 +14,15 @@
  *= require_self
  */
 .jumbotron {
-	background-image: url(jumbotron1.jpg);
+	background-image: url(a.png);
 	background-size: cover;
-	height: 20em;
+	/*height: 20em;*/
 }
 
 #play_now {
-	width: 130px;
-	height: 130px;
-	background-color: #ffff00;
-	text-align: center;
-	line-height: 125px;
-	font-style: sans-serif;
-	font-size: 20px;
-	font-color: #999900;
-	border: 7px outset #e5e600;
-	margin-left: 15px;
-
+	width: 0px;
+	height: 0px;
+	
 }
 
 .col-sm-6{
