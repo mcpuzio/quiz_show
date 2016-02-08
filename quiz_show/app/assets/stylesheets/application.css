@@ -13,23 +13,36 @@
  *= require_tree .
  *= require_self
  */
+nav li {
+	color: #311bb2;
+}
+
+#logo {
+	background-image: url(Drawing.png);
+	
+}
+
 .jumbotron {
-	background-image: url(jumbotron1.jpg);
+	background-image: url(jumbotron1.png);
 	background-size: cover;
-	height: 20em;
+	min-height: 70vh;
+
+
 }
 
 #play_now {
 	width: 130px;
 	height: 130px;
-	background-color: #ffff00;
+	background-color: #ffff99;
 	text-align: center;
 	line-height: 125px;
-	font-style: sans-serif;
 	font-size: 20px;
-	font-color: #999900;
 	border: 7px outset #e5e600;
+	border-radius: 3px;
 	margin-left: 15px;
-
 }
 
+#play_now strong {
+	font-family: arial;
+	color: #002db3;
+}

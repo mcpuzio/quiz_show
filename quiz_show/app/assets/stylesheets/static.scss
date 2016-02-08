@@ -1,13 +1,189 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.panel-heading h6 {
+	font-family: arial;
+	font-size: 1em;
+	color: white;
+}
 
+.panel .col-sm-4 {
 
+}
 
-.col-md-4 {
-	padding: 5em;
+#mentions {
+	.panel-heading {
+	font-family: arial;
+	font-size: 1.6em;
+	color: #311bb2;
+}
+
+	blockquote p {
+	font-size: 0.8em;
+	font-family: arial;
+	color: #311bb2;
+	}
+}
+
+#mentinos2 h4 {
+	background-color: #006699;
+	width: 220px;
+	height: 65px;
+	margin: -5px 0 0 160px;
+	text-align: center;
+	padding: 18px;
+	border-radius: 4px;
+	font-family: arial;
+	font-size: 1.6em;
+	color: white;
+}
+
+.panel-body {
+
+	ul {
+	list-style-type: none;
+	display: block;
+	margin-left: 90px;
+	margin-top: 35px;
+	
+		li {
+			float: left;
+			padding: 0px 8px;
+
+			#img1 {
+				width: 60px;
+				height: auto;
+			}
+
+			#img2 {
+				width: 90px;
+				height: auto;
+			}
+
+			#img3 {
+				width: 80px;
+				height: auto;
+			}
+		}
+	}
+}
+
+#row0 {
+		text-align: center;
+	
+
+	p {
+		font-family: arial;
+		font-size: 16	px;
+		color: #311bb2;
+		margin-top: 15px; 
+	}
+
+	h4 {
+		background-color: #006699;
+		width: 270px;
+		height: 65px;
+		padding: 18px;
+		border-radius: 4px;
+		font-family: arial;
+		font-size: 21px;
+		color: white;
+		margin: -1px 0 0 50px;
+		text-align: center;
+		vertical-align: middle;
+
+	}
+}
+
+#infopic {
+	background-image: url('http://static1.squarespace.com/static/55ef06cde4b0f95d48eded06/t/55fc4a99e4b092562d29ebc2/1442597530165/education%2Bstock%2Bdiversity%2Bschool%2Bstudents%2Bclassroom%2Braise%2Bhands.jpg?format=2500w');
+	width: 80px;
+	height: auto;
+}
+
+.hand {
+		
+		#hands {
+			width: 345px;
+			height: auto;
+			margin: 10px;
+		}
+}
+
+#except {
+			width: 40px;
+		}
+
+.imgs {
+	width: 90px;
+
+}
+
+#row2 {
+	background-color: #006699;
+	width: 220px;
+	height: 65px;
+	margin: -1px 0 0 100px;
+	text-align: center;
+	padding: 18px;
+	border-radius: 4px;
+	font-family: arial;
+	font-size: 1.6em;
+	color: white;
+
+	p {
+		font-family: arial;
+		font-size: 1.3em;
+		color: #311bb2; 
+	}
+
+	.inside-full-height {
+		height: 100%;
+	  	margin-top: 0;
+	  	margin-bottom: 0;
+	}
 }
 
 #imgs img {
 	width: 100%;
+}
+
+#row3 {
+	font-family: arial;
+	font-size: 1.3em;
+	color: #311bb2;
+
+	#icons {
+		color: #006699;
+		float: middle;
+		margin-left: 2em;
+		margin-top: 2em;
+	}
+
+	p {
+		font-family: arial;
+		font-size: 16px;
+		color: #311bb2; 
+	}
+}
+
+#row2_header {
+	background-color: #006699;
+	width: 220px;
+	height: 65px;
+	margin: 2% -9% 0 37%;
+	text-align: center;
+	padding: 18px;
+	border-radius: 4px;
+	font-family: arial;
+	font-size: 21px;
+	color: white;
+}
+
+.navbar-bottom {
+	min-height: 50px;
+	// margin-top: 100px;
+	// background-color: #28364f;
+	// padding-top: 35px;
+	color: #FFFFFF;
 }
