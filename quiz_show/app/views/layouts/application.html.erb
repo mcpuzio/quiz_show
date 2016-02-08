@@ -3,6 +3,7 @@
 <head>
   <title>QuizShow</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -15,14 +16,16 @@
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
 			</ul>
+			<div class="navbar-header"><div id="logo" class="navbar-brand navbar-center"></div></div>
 			<ul class="nav navbar-nav navbar-right">
 				<li><%= link_to "Sign In", new_user_path %></li>
 				<li><%= link_to "Sign Out", root_path %></li>
 			</ul>
-		</div>
+			</div>
+		
 	</nav>
 	<div class="jumbotron">
-		<div id="play_now"><b>PLAY NOW</b></div>
+		<div id="play_now"><strong>Play Now</strong></div>
 	</div>
 <!-- alerts will go in here -->
 <%= yield %>
