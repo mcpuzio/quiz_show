@@ -1,5 +1,13 @@
 class PlansController < ApplicationController
-	before_action :find_plan, only: [:show, :edit, :update, :destroy]
+	before_action :find_plan, only: [:show, :edit, :update, :destroy, :planOwner]
+	before_action :planOwner, only: [:edit, :update, :destroy]
+
+	def planOwner
+		unless @plan.user_id == current_user.id
+			flash[:notice] = 'Access Denied.'
+			redirect_to plans_path
+end
+	end
 
 	def index
 		@plans = Plan.all.order("created_at DESC")
@@ -18,6 +26,7 @@ class PlansController < ApplicationController
 		end
 	end
 	def edit
+
 	end
 	def update
 		if @plan.update(plan_params)

@@ -4,4 +4,6 @@
   <h3>SWAT: <%= link_to plan.object, plan %></h3>
   <% end %>
 <br><br>
- <%= link_to "Create a new lesson plan", new_plan_path %> 
+ <p><%= link_to "Create a new lesson plan", new_plan_path %> </p>
+
+<p><h2><%= flash[:notice] if flash[:notice] %></h2></p>
