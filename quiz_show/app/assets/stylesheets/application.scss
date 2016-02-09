@@ -24,13 +24,38 @@ nav li {
 	
 }
 
-/*.jumbotron {
+.jumbotron {
+	background-image: url(a.png);
+	background-size: cover;
+	/*height: 20em;*/
+}
+
+#play_now {
+	width: 0px;
+	height: 0px;
+	
 	background-image: url(jumbotron1.png);
 	background-size: cover;
-	min-height: 70vh;
+	/*height: 20em;*/
+}
 
 
-}*/
+#play_now {
+	width: 130px;
+	height: 130px;
+	background-color: #ffff99;
+	text-align: center;
+	line-height: 125px;
+	font-size: 20px;
+	border: 7px outset #e5e600;
+	border-radius: 3px;
+	margin-left: 15px;
+}
+
+#play_now strong {
+	font-family: arial;
+	color: #002db3;
+}
 
 .col-sm-6{
 	border: solid 0.3em #D8D8D8;
@@ -89,3 +114,8 @@ display: block;
 	width: auto;
 	height: auto;
 }	
+
+img{
+	height: 300px;
+	width: 500px;
+}
