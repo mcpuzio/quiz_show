@@ -4,7 +4,9 @@
 <div class="subject">
 <p id="lesson">Find lesson plans by subject</p>
 <% @plans.each do |plan| %>
-  <h3>Subjects: <%= link_to plan.object, plan %></h3>
+
+  <h3><%=plan.subject%>: <%= link_to plan.object, plan %></h3>
+ 
   <% end %>
 <br><br>
  <p><%= link_to "Create a new lesson plan", new_plan_path %> </p>
