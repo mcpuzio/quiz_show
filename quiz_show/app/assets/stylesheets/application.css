@@ -34,10 +34,9 @@ nav li {
 	
 	background-image: url(jumbotron1.png);
 	background-size: cover;
-	min-height: 70vh;
-
-
+	/*height: 20em;*/
 }
+
 
 #play_now {
 	width: 130px;
@@ -89,3 +88,9 @@ display: block;
 .progress{
 	margin-top: 20px;
 }
+
+img{
+	height: 300px;
+	width: 500px;
+}
+
