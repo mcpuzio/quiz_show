@@ -28,6 +28,15 @@ nav li {
 	/*height: 20em;*/
 }
 
+#play_now {
+	width: 0px;
+	height: 0px;
+	
+	background-image: url(jumbotron1.png);
+	background-size: cover;
+	/*height: 20em;*/
+}
+
 
 #play_now {
 	width: 130px;
