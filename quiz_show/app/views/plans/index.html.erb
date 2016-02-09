@@ -1,16 +1,18 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="panel panel-primary col-md-4">
+			<div class="panel-title">
+			<h2 id="row2">Welcome to teach.org</h2>
 
-<p>welcome to teach.org</p>
+				<% @plans.each do |plan| %>
+			  <h3>SWAT: <%= link_to plan.object, plan %></h3>
+			  <% end %>
+			<br><br>
+			 <button class="btn btn-default" type="submit"><%= link_to "NEW LESSON PLAN", new_plan_path %></button></p>
 
-<div class="subject">
-<p id="lesson">Find lesson plans by subject</p>
-<% @plans.each do |plan| %>
-
-  <h3><%=plan.subject%>: <%= link_to plan.object, plan %></h3>
- 
-  <% end %>
-<br><br>
- <p><%= link_to "Create a new lesson plan", new_plan_path %> </p>
-
+			<p><h2><%= flash[:notice] if flash[:notice] %></h2></p>
+			</div>
+		<div class="col-md-4"></div>
+	</div>
 </div>
-<p><h2><%= flash[:notice] if flash[:notice] %></h2></p>
-
