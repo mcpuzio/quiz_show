@@ -16,10 +16,12 @@
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
 				<li><%= link_to "Lessons", plans_path %></li>
+				<li><%= link_to "Quiz", user_path(current_user.id)  %></li>
+
 			</ul>
 			<div class="navbar-header"><div id="logo" class="navbar-brand navbar-center"></div></div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Sign In", new_user_path %></li>
+				<li><%= link_to "Sign Up", new_user_path %></li>
 				<li><%= link_to "Sign Out", root_path %></li>
 
 			</ul>
@@ -53,7 +55,10 @@ var progressBar = document.getElementById("progressBar");
 var myQuestion = document.getElementById("questions");
 var myHeader = document.getElementById("quizHeader");
 var classname = document.getElementsByClassName("answer");
+var finish = document.getElementById("finishQuiz");
+finish.addEventListener("click",endQuiz);
 checkPage();
+
 
 for (var i = 0; i < classname.length; i++) {
 	classname[i].addEventListener('click',myAnswer, false);
@@ -94,7 +99,11 @@ if(currentPage < (myQuiz.length-1) ){
 	}
 
 function endQuiz() {
+	if(myAnswer[currentPage]){
 	console.log('The End');
+}else{
+	console.log('Not Answered');
+}
 }
 
 function checkPage(i){
