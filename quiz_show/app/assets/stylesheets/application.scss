@@ -10,9 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
  */
+ 
+
 nav li {
 	color: #311bb2;
 }
@@ -22,33 +24,16 @@ nav li {
 	
 }
 
-.jumbotron {
+/*.jumbotron {
 	background-image: url(jumbotron1.png);
 	background-size: cover;
 	min-height: 70vh;
 
 
-}
-
-#play_now {
-	width: 130px;
-	height: 130px;
-	background-color: #ffff99;
-	text-align: center;
-	line-height: 125px;
-	font-size: 20px;
-	border: 7px outset #e5e600;
-	border-radius: 3px;
-	margin-left: 15px;
-}
-
-#play_now strong {
-	font-family: arial;
-	color: #002db3;
-}
+}*/
 
 .col-sm-6{
-	border: solid 1px #D8D8D8;
+	border: solid 0.3em #D8D8D8;
 	padding: 10px;
 }
 
@@ -80,3 +65,27 @@ display: block;
 .progress{
 	margin-top: 20px;
 }
+
+#row3 {
+	font-family: arial;
+	font-size: 1.3em;
+	color: #311bb2;
+}
+
+#row2 {
+	background-color: #006699;
+	width: 45%;
+	height: 24%;
+	margin: -1px 0 0 30%;
+	text-align: center;
+	padding: 8px;
+	border-radius: 4px;
+	font-family: arial;
+	font-size: 1.6em;
+	color: white;
+}
+
+.form_box {
+	width: auto;
+	height: auto;
+}	

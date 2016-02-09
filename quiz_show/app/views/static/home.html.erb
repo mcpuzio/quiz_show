@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div id="mentions" class="panel panel-primary col-md-6">
-    <div class="panel-heading"><h6>Quiz Show is Reknowned</h6></div>
+    <div class="panel-title"><h6>Quiz Show is Reknowned</h6></div>
     <div class="panel-body">
       <blockquote><p>
       	Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="panel col-md-6">
-    <div class="panel-heading" id="mentinos2"><h4>Great Mentions:</h4></div>
+    <div class="panel-title" id="mentinos2"><h4>Great Mentions:</h4></div>
     <div class="panel-body">
     <ul>
       <li><div class="imgs">
@@ -82,40 +82,7 @@
     </div>
   </div>
 <hr>
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    <!-- <li data-target="#carousel-example-generic" data-slide-to="3"></li> -->
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="http://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/collegestudentsclassroom-large.jpg" alt="Meeting">
-      <div class="carousel-caption"></div>
-    </div>
-    <div class="item">
-      <img src="http://www.wdmcs.org/wp-content/uploads/2012/01/teacherstudents_stock-photo2.jpg" alt="Teacher">
-      <div class="carousel-caption"></div>
-    </div>
-    <div class="item">
-      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSuFd-MwAFel4D_t2tglljoQIbP7qraduSY_NCFwBo8sozYLlH-" alt="Students">
-      <div class="carousel-caption"></div>
-    </div>
-  </div>
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  
 <hr>
 
   <div class="container-fluid">
@@ -167,14 +134,4 @@
         </div>
     </nav>
 
-<div id="login">
-<h1>Log In Now</h1>
 
-<%= form_tag @login do  %>
-	<%= label_tag :username %>
-  	<%= text_field_tag :username %>
-  	<%= label_tag :password %>
-  	<%= password_field_tag :password %>
-  	<%= submit_tag "Log In" %>
-<% end %>
-</div>
