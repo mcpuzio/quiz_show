@@ -79,3 +79,9 @@ display: block;
 .progress{
 	margin-top: 20px;
 }
+
+img{
+	height: 300px;
+	width: 500px;
+}
+

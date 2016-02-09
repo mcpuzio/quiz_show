@@ -44,7 +44,7 @@ end
 		@plan = Plan.find(params[:id])
 	end
 	def plan_params
-		params.require(:plan).permit(:subject, :object, :strategy, :assessment, :cclink)
+		params.require(:plan).permit(:subject, :object, :strategy, :assessment, :cclink, :image)
 	end
  
 end
