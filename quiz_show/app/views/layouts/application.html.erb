@@ -16,7 +16,8 @@
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
 				<li><%= link_to "Lessons", plans_path %></li>
-				<li><%= link_to "Quiz", user_path(current_user.id)%></li>
+				<li><% if current_user %><%= link_to "Quiz", user_path(current_user.id)%></li>
+				<% end%>
 
 				<li><%= link_to "Why Us?", root_path %></li>
 					
@@ -24,7 +25,9 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><%= link_to "Sign Up", new_user_path %></li>
-				<li><%= link_to "Sign Out", root_path %></li>
+				<li><%= link_to "Sign Out", logout_path %></li>
+				<li><%= link_to "Log In", login_path %></li>
+
 
 			</ul>
 
@@ -47,21 +50,14 @@ var myAnswers = [];
 var myQuiz = [
     ["What is Bob Dylan's real name?", "1.jpg", 1, "Robert Zimmerman", "Bob Zimmerman", "Dylan Thomas", "Robert Dylan"],
     ["The 1980's hit song 'Take on me' was performed by ", "2.jpg",1, "A-ha ", "Duran Duran", "Flock of Seagulls", "Wham!"],
+    
     ["Which country did Germany invade on the 1st of September 1939?", "3.jpg",4, "France", "Czechoslovakia", "Finland", " Poland "],
 
 	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
 
 	["Who defeated Hannibal at the Battle of Zama?", "3.jpg",2, "George Washington", "Scipio Africanus", "Pyrrhus of Epirus", " Alexander the Great "],
 
-	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
-
-	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
-
-	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
-
-	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
-
-	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+	
 ];
 
 var lengthofobject = myQuiz.length-1;
@@ -128,11 +124,24 @@ function moveNext() {
 }
 
 function endQuiz() {
-	if(myAnswers[currentPage]){
-	console.log('The End');
-}else{
-	console.log('Not Answered');
-}
+    if (myAnswers[lengthofobject]) {
+        var output = "<div class='output'>Quiz Results<BR>";
+        var questionResult = "NA";
+        //console.log('Quiz Over');
+        for (var i = 0; i < myAnswers.length; i++) {
+            if (myQuiz[i][2] == myAnswers[i]) {
+                questionResult = '<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>';
+                correct++;
+            } else {
+                questionResult = '<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>';
+            }
+            output = output + '<p>Question ' + (i + 1) + ' ' + questionResult + '</p> ';
+        }
+        output = output + '<p>You scored ' + correct + ' out of ' + myQuiz.length + '</p></div> ';
+        document.getElementById("quizContent").innerHTML = output;
+    } else {
+        //console.log('not answered');
+    }
 }
 
 function checkPage(i) {

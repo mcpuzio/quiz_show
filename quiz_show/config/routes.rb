@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static#home'
-  get '/' => 'sessions#new'
-  post '/' => 'sessions#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   delete '/logout' => 'sessions#destroy'
 
   # Example of regular route:
