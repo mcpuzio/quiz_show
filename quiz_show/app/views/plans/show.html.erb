@@ -1,15 +1,24 @@
-<h1><%= @plan.object %></h1><br>
-<p><strong>Subject:  </strong><%= @plan.subject %></p>
-<p><strong>Strategy:  </strong><%= @plan.strategy %></p>
-<p><strong>Assessment:  </strong><%= @plan.assessment %></p>
-<p><strong>link:  </strong><%= @plan.cclink %></p>
-<br>
-<br>
-<p><%= link_to "Edit Lesson Plan", edit_plan_path(@plan) %>  |  
-<%= link_to "Destroy", plan_path(@plan), method: :delete, data: {confirm: "Delete Plan?"} %>  |  
-<%= link_to "Lessons", plans_path(@current_user) %></p>
-
-<div class="images">
-<%= image_tag (@plan.image_url) %>
-
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="panel panel-primary col-md-6">
+			<div class="panel-title">
+				<h1 id="plan-param-title"><%= @plan.object %></h1><br>
+				<p><strong class="plan-param-item">Subject:</strong> <%= @plan.subject %></p>
+				<p><strong class="plan-param-item">Strategy:</strong> <%= @plan.strategy %></p>
+				<p><strong class="plan-param-item">Assessment:</strong> <%= @plan.assessment %></p>
+				<p><strong class="plan-param-item">Link:</strong> <%= @plan.cclink %></p>
+				<div class="plan_image">
+					<%= image_tag (@plan.image_url) %></div>
+				<br>
+				<br>
+				<ul id="button_plan_list">
+					<li><button class="btn btn-default" type="submit"><%= link_to "Edit", edit_plan_path(@plan) %></button></li> 
+					<li><button class="btn btn-default" type="submit"><%= link_to "Destroy", plan_path(@plan), method: :delete, data: {confirm: "Delete"} %></button></li> 
+					<li><button class="btn btn-default" type="submit"><%= link_to "Return", plans_path(@current_user) %></button></li>
+				</ul>
+				</div>
+			</div>
+		<div class="col-md-2"></div>
+	</div>
 </div>

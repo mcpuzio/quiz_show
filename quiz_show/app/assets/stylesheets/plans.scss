@@ -1,3 +1,18 @@
 // Place all the styles related to the Plans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel {
+	height: 18%;
+
+}
+
+#button_plan_list {
+
+	.btn .btn-default {
+		list-style-type: none;
+		float: left;
+		margin-bottom: 2%;
+		margin-left: 11%;
+	}
+}

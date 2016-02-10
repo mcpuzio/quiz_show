@@ -1,10 +1,11 @@
-<%= form_for @plan do |p| %>
+<br>
+<div class="form_box"><%= form_for @plan do |p| %>
  <%= p.label :subject %>
  <%= p.text_field :subject %><br>
  <%= p.label :object %>
- <%= p.text_area :object, size: "60x12" %><br>
+ <%= p.text_area :object, size: "36x6" %><br>
  <%= p.label :strategy %>
- <%= p.text_area :strategy, size: "60x12" %><br>
+ <%= p.text_area :strategy, size: "36x6" %><br>
  <%= p.label :assessment %>
  <%= p.text_field :assessment %><br>
  <%= p.label :cclink %>
@@ -13,4 +14,5 @@
  <%= p.file_field :image %>
  <%= p.submit "Save" %>
 	
-<% end %>
+<% end %></div>
+<br>
