@@ -16,7 +16,7 @@
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
 				<li><%= link_to "Lessons", plans_path %></li>
-				<li><%= link_to "Quiz", user_path(current_user)%></li>
+				<li><%= link_to "Quiz", user_path(current_user.id)%></li>
 
 				<li><%= link_to "Why Us?", root_path %></li>
 					
@@ -28,7 +28,7 @@
 
 			</ul>
 
-				
+
 		</div>		
 	</nav>
 	
@@ -68,12 +68,6 @@ var lengthofobject = myQuiz.length-1;
 var newimage = document.getElementById("quizimage");
 var myHeader = document.getElementById("quizHeader");
 var classname = document.getElementsByClassName("answer");
-var finish = document.getElementById("finishQuiz");
-
-checkPage();
-finish.addEventListener("click",endQuiz);
-
-
 var myQuestion = document.getElementById("questions");
 var progressBar = document.getElementById("progressBar");
 var next = document.getElementById("next");
@@ -139,35 +133,6 @@ function endQuiz() {
 }else{
 	console.log('Not Answered');
 }
-}
-
-function checkPage(i){
-	//add and removing buttons if no more questions
-	if(currentPage==0){
-		previous.classList.add("hide");
-	}else{previous.classList.remove("hide");}
-
-	if( (currentPage+1)<(myQuiz.length)){
-	next.classList.remove("hide");
-	}else{next.classList.add("hide");
-    if (myAnswers[lengthofobject]) {
-        var output = "<div class='output'>Quiz Results<BR>";
-        var questionResult = "NA";
-        //console.log('Quiz Over');
-        for (var i = 0; i < myAnswers.length; i++) {
-            if (myQuiz[i][2] == myAnswers[i]) {
-                questionResult = '<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>';
-                correct++;
-            } else {
-                questionResult = '<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>';
-            }
-            output = output + '<p>Question ' + (i + 1) + ' ' + questionResult + '</p> ';
-        }
-        output = output + '<p>You scored ' + correct + ' out of ' + myQuiz.length + '</p></div> ';
-        document.getElementById("quizContent").innerHTML = output;
-    } else {
-        //console.log('not answered');
-    }
 }
 
 function checkPage(i) {
