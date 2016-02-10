@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .panel-heading h6 {
 	font-family: arial;
-	font-size: 1em;
-	color: white;
+	font-size: 3%;
+	color:  #311bb2;
 }
 
 .panel .col-sm-4 {
@@ -15,7 +15,7 @@
 	.panel-heading {
 	font-family: arial;
 	font-size: 1.6em;
-	color: #311bb2;
+	color: #ffffff;
 }
 
 	blockquote p {
@@ -27,11 +27,11 @@
 
 #mentinos2 h4 {
 	background-color: #006699;
-	width: 220px;
-	height: 65px;
-	margin: -5px 0 0 160px;
+	width: 45%;
+	height: 24%;
+	margin: -1px 0 0 30%;
 	text-align: center;
-	padding: 18px;
+	padding: 12px;
 	border-radius: 4px;
 	font-family: arial;
 	font-size: 1.6em;
@@ -81,18 +81,17 @@
 
 	h4 {
 		background-color: #006699;
-		width: 270px;
-		height: 65px;
-		padding: 18px;
+		width: 45%;
+		height: 24%;
+		margin: -1px 0 0 30%;
+		text-align: center;
+		padding: 9px;
 		border-radius: 4px;
 		font-family: arial;
-		font-size: 21px;
+		font-size: 1.6em;
 		color: white;
-		margin: -1px 0 0 50px;
-		text-align: center;
-		vertical-align: middle;
 
-	}
+		}
 }
 
 #infopic {
@@ -121,11 +120,11 @@
 
 #row2 {
 	background-color: #006699;
-	width: 220px;
-	height: 85px;
-	margin: -1px 0 0 100px;
+	width: 45%;
+	height: 44%;
+	margin: -1px 0 0 30%;
 	text-align: center;
-	padding: 8px;
+	padding: 6%;
 	border-radius: 4px;
 	font-family: arial;
 	font-size: 1.6em;
@@ -142,6 +141,8 @@
 	  	margin-top: 0;
 	  	margin-bottom: 0;
 	}
+
+
 }
 
 #imgs img {
@@ -169,14 +170,14 @@
 
 #row2_header {
 	background-color: #006699;
-	width: 220px;
-	height: 65px;
-	margin: 2% -9% 0 37%;
+	width: 25%;
+	height: 24%;
+	margin: -1px 0 0 40%;
 	text-align: center;
-	padding: 18px;
+	padding: 12px;
 	border-radius: 4px;
 	font-family: arial;
-	font-size: 21px;
+	font-size: 1.6em;
 	color: white;
 }
 
