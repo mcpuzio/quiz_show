@@ -6,7 +6,7 @@
 			<h2 id="row2">Welcome to teach.org</h2>
 
 				<% @plans.each do |plan| %>
-			  <h3>SWAT: <%= link_to plan.object, plan %></h3>
+			  <h3><%= plan.subject %> <%= link_to plan.object, plan %></h3>
 			  <% end %>
 			<br><br>
 			 <button class="btn btn-default" type="submit"><%= link_to "NEW LESSON PLAN", new_plan_path %></button></p>
