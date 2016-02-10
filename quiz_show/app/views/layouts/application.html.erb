@@ -15,12 +15,19 @@
 			<ul class="nav navbar-nav navbar-left">
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
+				<li><%= link_to "Lessons", plans_path %></li>
+				<li><%= link_to "Quiz", user_path(current_user)%></li>
+
 				<li><%= link_to "Why Us?", root_path %></li>
 					
 				<li><%= link_to "Your Plans", plans_path %></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><%= link_to "Sign Up", new_user_path %></li>
+				<li><%= link_to "Sign Out", root_path %></li>
+
+			</ul>
+				<li type="button" class="btn btn-md" data-toggle="modal" data-target="#myModal"><%= link_to "Sign In", new_user_path %></li>
                 <li><%= link_to "Sign Out", root_path %></li>
             </ul>
 		</div>		
@@ -52,7 +59,10 @@ var progressBar = document.getElementById("progressBar");
 var myQuestion = document.getElementById("questions");
 var myHeader = document.getElementById("quizHeader");
 var classname = document.getElementsByClassName("answer");
+var finish = document.getElementById("finishQuiz");
+
 checkPage();
+finish.addEventListener("click",endQuiz);
 
 for (var i = 0; i < classname.length; i++) {
 	classname[i].addEventListener('click',myAnswer, false);
@@ -93,7 +103,11 @@ if(currentPage < (myQuiz.length-1) ){
 	}
 
 function endQuiz() {
+	if(myAnswers[currentPage]){
 	console.log('The End');
+}else{
+	console.log('Not Answered');
+}
 }
 
 function checkPage(i){
