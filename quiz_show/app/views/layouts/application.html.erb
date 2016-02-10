@@ -15,120 +15,170 @@
 			<ul class="nav navbar-nav navbar-left">
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "About", root_path %></li>
+				<li><%= link_to "Lessons", plans_path %></li>
+				<li><%= link_to "Quiz", user_path(current_user.id)%></li>
+
+				<li><%= link_to "Why Us?", root_path %></li>
+					
+				<li><%= link_to "Your Plans", plans_path %></li>
 			</ul>
-			<div class="navbar-header"><div id="logo" class="navbar-brand navbar-center"></div></div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Sign In", new_user_path %></li>
+				<li><%= link_to "Sign Up", new_user_path %></li>
 				<li><%= link_to "Sign Out", root_path %></li>
+
 			</ul>
-			</div>
-		
+
+
+		</div>		
 	</nav>
+	
 	<div class="jumbotron">
-		<div id="play_now"><strong>Play Now</strong></div>
 	</div>
 <!-- alerts will go in here -->
 <%= yield %>
 
 </body>
 </html>
- <script >
 	
-
-var currentPage = 0, correct = 0;
+<script>
+var curPage = 0,
+    correct = 0;
 var myAnswers = [];
+/// [ HEADER , IMAGE , CORRECT ANSWER , ANSWER 1, ANSWER 2, ANSWER 3, ANSWER 4 ]
 var myQuiz = [
-["Why is life so difficult?",4,"Javascript","Ruby on Rails","Testing","GitHub"],
-["When under stress, what is Willis's go to phrase?",2,"WTF","Please God, just work","I hate my life!","Jen, make this work!"],
-["Famous Tennis Player?",1,"Roger Federer","Michael Jackson","Charlie Sheen","Michael Puzio"]
+    ["What is Bob Dylan's real name?", "1.jpg", 1, "Robert Zimmerman", "Bob Zimmerman", "Dylan Thomas", "Robert Dylan"],
+    ["The 1980's hit song 'Take on me' was performed by ", "2.jpg",1, "A-ha ", "Duran Duran", "Flock of Seagulls", "Wham!"],
+    ["Which country did Germany invade on the 1st of September 1939?", "3.jpg",4, "France", "Czechoslovakia", "Finland", " Poland "],
 
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+
+	["Who defeated Hannibal at the Battle of Zama?", "3.jpg",2, "George Washington", "Scipio Africanus", "Pyrrhus of Epirus", " Alexander the Great "],
+
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
+
+	["What is the oldest known story in the world?", "3.jpg",3, "The Bible", "The Histories", "The Epic of Gilgamesh", " The Odyssey "],
 ];
-var previous = document.getElementById("previous")
-var next = document.getElementById("next")
-next.addEventListener("click", moveNext);
-previous.addEventListener("click", moveBack);
-var progressBar = document.getElementById("progressBar");
-var myQuestion = document.getElementById("questions");
+
+var lengthofobject = myQuiz.length-1;
+var newimage = document.getElementById("quizimage");
 var myHeader = document.getElementById("quizHeader");
 var classname = document.getElementsByClassName("answer");
+var myQuestion = document.getElementById("questions");
+var progressBar = document.getElementById("progressBar");
+var next = document.getElementById("next");
+var previous = document.getElementById("previous");
+var finish = document.getElementById("finishQuiz");
 checkPage();
-
+next.addEventListener("click", moveNext);
+previous.addEventListener("click", moveBack);
+finish.addEventListener("click", endQuiz);
 for (var i = 0; i < classname.length; i++) {
-	classname[i].addEventListener('click',myAnswer, false);
+    classname[i].addEventListener('click', myAnswer, false);
 }
+
+
 
 function myAnswer() {
-	var idAnswer = this.getAttribute("data-id");
-	// document.getElementById("page1").innerHTML = 'Answer' + idAnswer;
-	// This will check for the correct answer
-	myAnswers[currentPage] = idAnswer;
-	if(myQuiz[currentPage][1]==idAnswer){
-		console.log('Correct Answer');
-	}else{console.log('Wrong Answer');
-	}
+    var idAnswer = this.getAttribute("data-id");
+    /// check for correct answer
+    myAnswers[curPage] = idAnswer;
+    if (myQuiz[curPage][2] == idAnswer) {
+        //console.log('Correct Answer');
+    } else {
+        //console.log('Wrong Answer');
+    }
+    addBox();
 }
 
-
+function addBox() {
+    for (var i = 0; i < myQuestion.children.length; i++) {
+        var curNode = myQuestion.children[i];
+        if (myAnswers[curPage] == (i + 1)) {
+            curNode.classList.add("selAnswer");
+        } else {
+            curNode.classList.remove("selAnswer");
+        }
+    }
+}
 
 function moveNext() {
-if (myAnswers[currentPage]){
-	console.log('you may pass');
-
-if(currentPage < (myQuiz.length-1) ){
-		currentPage++;
-		checkPage(currentPage);
-} else {
-	//checks if question has been answered
-	console.log(currentPage + '' + myQuiz.length); 
-	if (myQuiz.length >= currentPage){
-		endQuiz();
-	}else{
-		console.log('end of quiz Page' + currentPage);
+    ///check if an answer has been made
+    if (myAnswers[curPage]) {
+        //console.log('okay to proceed');
+        if (curPage < (myQuiz.length - 1)) {
+            curPage++;
+            checkPage(curPage);
+        } else {
+            ///check if quiz is completed
+            //console.log(curPage + ' ' + myQuiz.length);
+            if (myQuiz.length >= curPage) {
+                endQuiz();
+            } else {
+                //console.log('end of quiz Page ' + curPage);
+            }
+        }
+    } else {
+        //console.log('not answered');
+    }
 }
-	}
-} else {
-	console.log('YOU, shall not pass!');
-}
-	}
 
 function endQuiz() {
+	if(myAnswers[currentPage]){
 	console.log('The End');
+}else{
+	console.log('Not Answered');
+}
 }
 
-function checkPage(i){
-	//add and removing buttons if no more questions
-	if(currentPage==0){
-		previous.classList.add("hide");
-	}else{previous.classList.remove("hide");}
-
-	if( (currentPage+1)<(myQuiz.length)){
-	next.classList.remove("hide");
-	}else{next.classList.add("hide");
-}
-
-
-	
-	myHeader.innerHTML = myQuiz[currentPage][0];
-	for (var i = 0; i < myQuestion.children.length;i++){
-	var curNode = myQuestion.children[i];
-	curNode.childNodes[1].innerHTML = capitalise(myQuiz[currentPage][(i+2)]);
-	}
-	//updating progress bar
-	var increment = Math.ceil((currentPage)/(myQuiz.length)*100);
-	progressBar.style.width = (increment)+ '%';
-	progressBar.innerHTML=(increment)+ '%';
+function checkPage(i) {
+    /// add remove disabled buttons if there are no more questions in que
+    if (curPage == 0) {
+        previous.classList.add("hide");
+    } else {
+        previous.classList.remove("hide");
+    }
+    if ((curPage + 1) < (myQuiz.length)) {
+        next.classList.remove("hide");
+    } else {
+        next.classList.add("hide");
+        finish.classList.remove("hide");
+    }
+    myHeader.innerHTML = myQuiz[curPage][0];
+	newimage.src = myQuiz[curPage][1];
+    for (var i = 0; i < myQuestion.children.length; i++) {
+        var curNode = myQuestion.children[i];
+        curNode.childNodes[1].innerHTML = capitalise(myQuiz[curPage][(i + 3)]);
+        //check if answered already
+        if (myAnswers[curPage] == (i + 1)) {
+            curNode.classList.add("selAnswer");
+        } else {
+            curNode.classList.remove("selAnswer");
+        }
+    }
+    ///update progress bar
+    var increment = Math.ceil((curPage) / (myQuiz.length) * 100);
+    progressBar.style.width = (increment) + '%';
+    progressBar.innerHTML = (increment) + '%';
 }
 
 function moveBack() {
-	if(currentPage > 0 ){
-		currentPage--;
-		checkPage(currentPage);
-	}else{
-		console.log('end of quiz Page' + currentPage);
-	}
+    if (curPage > 0) {
+        curPage--;
+        checkPage(curPage);
+    } else {
+        //console.log('end of quiz Page ' + curPage);
+    }
 }
+
 function capitalise(str) {
  	return str.substr(0,1).toUpperCase() + str.substr(1);
  }
 
  </script>
+
