@@ -47,7 +47,6 @@ nav li {
 }
 
 .col-sm-6{
-	border: solid 1px #D8D8D8;
 	padding: 10px;
 }
 
@@ -65,6 +64,8 @@ nav li {
 
 .container{
 	border: solid 1px #D8D8D8;
+	background-color: #003366;
+	color:#9900FF;
 }
 
 .hide{
@@ -78,6 +79,26 @@ display: block;
 
 .progress{
 	margin-top: 20px;
+}
+
+#finishQuiz{
+	margin-top: 25px;
+}
+
+.output{
+	font-size: 20px;
+}
+
+.glyphicon-ok-circle{
+	color: #00FF64;
+}
+
+.glyphicon-remove-circle{
+	color: #FF0004;
+}
+
+.selAnswer {
+	background: #4E9267;
 }
 
 img{
