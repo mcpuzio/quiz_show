@@ -55,9 +55,9 @@ var myQuestion = document.getElementById("questions");
 var myHeader = document.getElementById("quizHeader");
 var classname = document.getElementsByClassName("answer");
 var finish = document.getElementById("finishQuiz");
-finish.addEventListener("click",endQuiz);
-checkPage();
 
+checkPage();
+finish.addEventListener("click",endQuiz);
 
 for (var i = 0; i < classname.length; i++) {
 	classname[i].addEventListener('click',myAnswer, false);
@@ -98,7 +98,7 @@ if(currentPage < (myQuiz.length-1) ){
 	}
 
 function endQuiz() {
-	if(myAnswer[currentPage]){
+	if(myAnswers[currentPage]){
 	console.log('The End');
 }else{
 	console.log('Not Answered');
