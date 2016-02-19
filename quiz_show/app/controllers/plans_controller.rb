@@ -37,7 +37,7 @@ end
 	end
 	def destroy
 		@plan.destroy
-			redirect_to root_path
+			redirect_to plans_path
 	end
 	private
 	def find_plan
